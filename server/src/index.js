@@ -3,9 +3,10 @@ const apiRoute = require("./../routes/api");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const morgan = require("morgan");
+require("dotenv").config();
 
 const app = express();
-const port = 3000;
+const port = process.env.APPLICATION_PORT || 3000;
 
 app.use(morgan("combined"));
 app.use(bodyParser.json());

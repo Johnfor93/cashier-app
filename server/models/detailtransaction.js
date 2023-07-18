@@ -2,7 +2,7 @@ const database = require("./../config/postgres");
 
 const createDtlTransaction = async ({ id, kode_barang, jumlah_barang, subtotal }) => {
   try {
-    const result = await database.query("INSERT INTO dtl_transaksi VALUES ($1, $2, $3)", [id, kode_barang, jumlah_barang, subtotal]);
+    const result = await database.query("INSERT INTO dtl_transaksi VALUES ($1, $2, $3, %4)", [id, kode_barang, jumlah_barang, subtotal]);
     if (result.rowCount == 0) {
       throw new Error("Data tidak dapat dimasukkan");
     }

@@ -30,7 +30,7 @@ const getTransactionbyId = async (id) => {
     if (result.rowCount == 0) {
       throw new Error("Data tidak dapat ditemukan");
     }
-    return result;
+    return result.rows;
   } catch (error) {
     throw error;
   }

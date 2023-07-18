@@ -2,7 +2,7 @@ const database = require("./../config/postgres");
 
 const getProduct = async () => {
   try {
-    const result = await database.query("SELECT * FROM Products");
+    const result = await database.query("SELECT * FROM Product");
     if (result.rowCount == 0) {
       throw new Error("Data tidak dapat ditemukan");
     }
@@ -14,11 +14,11 @@ const getProduct = async () => {
 
 const createProduct = async (data) => {
   try {
-    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.jumlah]);
+    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.harga]);
     if (result.rowCount == 0) {
       throw new Error("Data tidak dapat dimasukkan");
     }
-    return result.rows[0];
+    return data;
   } catch (error) {
     throw error;
   }
@@ -38,11 +38,11 @@ const updateProduct = async (data) => {
 
 const deleteProduct = async (id) => {
   try {
-    const result = database.query("DELETE FROM product WHERE kodebarang = $1", [id]);
+    const result = await database.query("DELETE FROM product WHERE kodebarang = $1", [id]);
     if (result.rowCount == 0) {
       throw new Error("Data tidak dapat ditemukan");
     }
-    return result.rows[0];
+    return result.rowCount;
   } catch (error) {
     throw error;
   }

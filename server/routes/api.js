@@ -7,9 +7,7 @@ apiRoute.get("/getItembyId/:id", (req, res) => {
   res.json({ data: `Ini get Item by Id api dengan id: ${req.params.id}` });
 });
 
-apiRoute.post("/addItem", (req, res) => {
-  res.json({ data: "Item telah dimasukkan" });
-});
+apiRoute.post("/addItem", (req, res) => product.createProduct(req, res));
 
 apiRoute.get("/getTransaction", (req, res) => {
   res.json({ data: "Transaksi yang didapat" });
