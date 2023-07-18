@@ -1,7 +1,10 @@
 const apiRoute = require("express").Router();
+const product = require("./../models/product");
 
-apiRoute.get("/getItem", (req, res) => {
-  res.json({ data: "Ini get Item api" });
+apiRoute.get("/getItem", async (req, res) => {
+  result = await product.getProduct();
+  console.log(result);
+  res.json({ result });
 });
 
 apiRoute.get("/getItembyId/:id", (req, res) => {
