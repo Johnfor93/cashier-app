@@ -1,28 +1,39 @@
 const database = require("./../config/postgres");
 
-const createTransaction = ({ id, tanggal, total }) => {
-  database.query("INSERT INTO transaksi VALUES ($1, $2, $3)", [id, tanggal, total], (error, result) => {
-    if (error) throw error;
+const createTransaction = async ({ id, tanggal, total }) => {
+  try {
+    const result = await database.query("INSERT INTO transaksi VALUES ($1, $2, $3)", [id, tanggal, total]);
     if (result.rowCount == 0) {
-      error = "Data tidak berhasil dimasukkan";
-      throw error;
+      throw new Error("Data tidak dapat dimasukkan");
     }
     return result.rows[0];
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-const getTransaction = () => {
-  database.query("SELECT * FROM transaksi", (error, result) => {
-    if (error) throw error;
+const getTransaction = async () => {
+  try {
+    const result = await database.query("SELECT * FROM transaksi");
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
     return result.rows;
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-const getTransactionbyId = (id) => {
-  database.query("SELECT * FROM transaksi WHERE id_transaksi $1", [id], (error, result) => {
-    if (error) throw error;
-    return result.rows;
-  });
+const getTransactionbyId = async (id) => {
+  try {
+    const result = await database.query("SELECT * FROM transaksi WHERE id_transaksi $1", [id]);
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
+    return result;
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {

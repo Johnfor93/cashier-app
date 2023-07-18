@@ -1,28 +1,39 @@
 const database = require("./../config/postgres");
 
-const createDtlTransaction = ({ id, kode_barang, jumlah_barang, subtotal }) => {
-  database.query("INSERT INTO dtl_transaksi VALUES ($1, $2, $3)", [id, kode_barang, jumlah_barang, subtotal], (error, result) => {
-    if (error) throw error;
+const createDtlTransaction = async ({ id, kode_barang, jumlah_barang, subtotal }) => {
+  try {
+    const result = await database.query("INSERT INTO dtl_transaksi VALUES ($1, $2, $3)", [id, kode_barang, jumlah_barang, subtotal]);
     if (result.rowCount == 0) {
-      error = "Data tidak berhasil dimasukkan";
-      throw error;
+      throw new Error("Data tidak dapat dimasukkan");
     }
     return result.rows[0];
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-const getDtlTransaction = () => {
-  database.query("SELECT * FROM dtl_transaksi", (error, result) => {
-    if (error) throw error;
+const getDtlTransaction = async () => {
+  try {
+    const result = await database.query("SELECT * FROM dtl_transaksi");
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
     return result.rows;
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-const getDtlTransactionbyId = (id) => {
-  database.query("SELECT * FROM dtl_transaksi WHERE id_transaksi = $1", [id], (error, result) => {
-    if (error) throw error;
+const getDtlTransactionbyId = async (id) => {
+  try {
+    const result = await database.query("SELECT * FROM dtl_transaksi WHERE id_transaksi = $1", [id]);
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
     return result.rows;
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {

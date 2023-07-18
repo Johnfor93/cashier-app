@@ -1,44 +1,56 @@
 const database = require("./../config/postgres");
 
 const getProduct = async () => {
-  database.query("SELECT * FROM Product", (err, res) => {
-    if (err) {
-      console.error(err);
-      throw err;
+  try {
+    const result = await database.query("SELECT * FROM Products");
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
     }
-    console.log(res.rows);
-    return res.rows;
-  });
+    return result.rows;
+  } catch (error) {
+    throw error;
+  }
 };
 
-const createProduct = (data) => {
-  database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.jumlah], (error, result) => {
-    if (error) {
-      throw error;
+const createProduct = async (data) => {
+  try {
+    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.jumlah]);
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat dimasukkan");
     }
-    console.log(res.rows[0]);
-    return res.rows[0];
-  });
-};
-
-const updateProduct = (data) => {
-  database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6 WHERE kodebarang = $1", [data.id, data.nama, data.brand, data.model, data.jumlah, data.jumlah], (error, result) => {
-    if (error) {
-      throw error;
-    }
-    console.log(result.rows[0]);
     return result.rows[0];
-  });
+  } catch (error) {
+    throw error;
+  }
 };
 
-const deleteProduct = (id) => {
-  database.query("DELETE FROM product WHERE kodebarang = $1", [id], (error, result) => {
-    if (error) throw error;
-    console.log(result.rows[0]);
+const updateProduct = async (data) => {
+  try {
+    const result = await database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6 WHERE kodebarang = $1", [data.id, data.nama, data.brand, data.model, data.jumlah, data.jumlah]);
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
     return result.rows[0];
-  });
+  } catch (error) {
+    throw error;
+  }
+};
+
+const deleteProduct = async (id) => {
+  try {
+    const result = database.query("DELETE FROM product WHERE kodebarang = $1", [id]);
+    if (result.rowCount == 0) {
+      throw new Error("Data tidak dapat ditemukan");
+    }
+    return result.rows[0];
+  } catch (error) {
+    throw error;
+  }
 };
 
 module.exports = {
   getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct,
 };
