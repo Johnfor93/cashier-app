@@ -12,6 +12,22 @@ const getProduct = async () => {
   }
 };
 
+const getProductByName = async (name) => {
+  name = name.replace(/\s/g, "%");
+  name = "%" + name + "%";
+  const query = `SELECT * FROM Product WHERE nama_barang LIKE '${name}'`;
+  console.log(query);
+  try {
+    const result = await database.query(`SELECT * FROM Product WHERE nama_barang LIKE '${name}'`);
+    return {
+      count: result.rowCount,
+      result: result.rows,
+    };
+  } catch (error) {
+    throw error;
+  }
+};
+
 const createProduct = async (data) => {
   try {
     const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.harga]);
@@ -50,6 +66,7 @@ const deleteProduct = async (id) => {
 
 module.exports = {
   getProduct,
+  getProductByName,
   createProduct,
   updateProduct,
   deleteProduct,

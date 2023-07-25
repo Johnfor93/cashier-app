@@ -7,7 +7,8 @@ const { getTransaction } = require("../models/transaction");
 apiRoute.get("/", (req, res) => res.json("Hello"));
 
 // Product api
-apiRoute.get("/getItem", (req, res) => product.getItem(req, res));
+apiRoute.get("/getItem/", (req, res) => product.getItem(req, res));
+apiRoute.get("/getItemByName/:name", (req, res) => product.getItemByName(req, res));
 apiRoute.post("/addItem", (req, res) => product.createProduct(req, res));
 
 apiRoute.get("/getItembyId/:id", (req, res) => {

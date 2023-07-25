@@ -10,6 +10,16 @@ const getItem = async (req, res) => {
   }
 };
 
+const getItemByName = async (req, res) => {
+  const nameToFind = req.params.name;
+  try {
+    const result = await product.getProductByName(nameToFind);
+    res.status(HTTPSTATUS.OK).json(result);
+  } catch (error) {
+    res.status(HTTPSTATUS.InternalServerError).json({ error });
+  }
+};
+
 const createProduct = async (req, res) => {
   data = req.body;
   let errorInput = [];
@@ -126,6 +136,7 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
   getItem,
+  getItemByName,
   createProduct,
   updateProduct,
   deleteProduct,
