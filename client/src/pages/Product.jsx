@@ -50,11 +50,10 @@ const Product = () => {
           </Alert>
         </div>
       ) : (
-        ""
+        <div className="d-flex align-items-center mb-3 p-3">
+          <TableProduct products={products} />
+        </div>
       )}
-      <div className="d-flex align-items-center mb-3 px-3">
-        <TableProduct products={products} />
-      </div>
     </div>
   );
 };

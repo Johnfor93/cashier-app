@@ -14,11 +14,14 @@ const createTransaction = async ({ id, tanggal, total }) => {
 
 const getTransaction = async () => {
   try {
-    const result = await database.query("SELECT * FROM transaksi");
-    if (result.rowCount == 0) {
-      throw new Error("Data tidak dapat ditemukan");
-    }
-    return result.rows;
+    const result = await database.query(
+      "select nama_barang, jumlah_barang, harga, subtotal, tanggal_transaksi from dtl_transaksi, product, transaksi where dtl_transaksi.kodebarang = product.kodebarang and dtl_transaksi.id_transaksi = transaksi.id_transaksi"
+    );
+    // console.log(result);
+    return {
+      count: result.rowCount,
+      result: result.rows,
+    };
   } catch (error) {
     throw error;
   }
