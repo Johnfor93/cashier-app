@@ -2,7 +2,6 @@ const apiRoute = require("express").Router();
 const product = require("./../controllers/product");
 const transaction = require("./../controllers/transaction");
 const dtlTransaction = require("./../controllers/detailtransaction");
-const { getTransaction } = require("../models/transaction");
 
 apiRoute.get("/", (req, res) => res.json("Hello"));
 
@@ -16,7 +15,7 @@ apiRoute.get("/getItembyId/:id", (req, res) => {
 });
 
 // Transaction api
-apiRoute.get("/getTransaction", (req, res) => transaction.getTransaction(req, res));
+apiRoute.get("/getTransaction/:start/:end", (req, res) => transaction.getTransaction(req, res));
 apiRoute.post("/addTransaction", (req, res) => transaction.createTransaction(req, res));
 
 // Detail Transaction
