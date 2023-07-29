@@ -37,6 +37,11 @@ const Transaksi = () => {
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
+    if (data.name !== undefined && data.name === "error") {
+      setShow(true);
+      setTransaction([]);
+      return;
+    }
     if (data.count === 0) {
       setShow(true);
       setTransaction([]);
@@ -54,13 +59,13 @@ const Transaksi = () => {
         <div className="row pe-3">
           <div className="col">
             <span className="fs-4">Mulai:</span>
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} maxDate={new Date()} />
+            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} maxDate={new Date()} className="form-control" />
           </div>
         </div>
         <div className="row pe-3">
           <div className="col">
             <span className="fs-4">Akhir:</span>
-            <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} maxDate={new Date()} minDate={startDate} />
+            <DatePicker className="form-control" selected={endDate} onChange={(date) => setEndDate(date)} maxDate={new Date()} minDate={startDate} />
           </div>
         </div>
         <div className="row p-3">

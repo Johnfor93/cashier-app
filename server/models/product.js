@@ -15,10 +15,8 @@ const getProduct = async () => {
 const getProductByName = async (name) => {
   name = name.replace(/\s/g, "%");
   name = "%" + name + "%";
-  const query = `SELECT * FROM Product WHERE nama_barang LIKE '${name}'`;
-  console.log(query);
   try {
-    const result = await database.query(`SELECT * FROM Product WHERE nama_barang LIKE '${name}'`);
+    const result = await database.query("SELECT * FROM Product WHERE nama_barang LIKE $1 OR kodebarang LIKE $1", [name]);
     return {
       count: result.rowCount,
       result: result.rows,
