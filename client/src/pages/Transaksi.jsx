@@ -13,10 +13,6 @@ const Transaksi = () => {
   const [show, setShow] = useState(true);
   const [transaction, setTransaction] = useState([]);
 
-  useEffect(() => {
-    getTransaction();
-  }, []);
-
   const handlerClick = () => {
     getTransaction();
   };
@@ -50,6 +46,11 @@ const Transaksi = () => {
     setShow(false);
     setTransaction(data.result);
   };
+
+  useEffect(() => {
+    getTransaction();
+  }, []);
+
   return (
     <div className="px-4">
       <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto p-3 text-decoration-none">

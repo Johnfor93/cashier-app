@@ -6,7 +6,9 @@ const TableProduct = (props) => {
   const handlerClick = async (item, setShow) => {
     let items = await JSON.parse(localStorage.getItem("items"));
     if (items == null) items = [];
+    const lastIndex = items.length;
     items.push({
+      index: lastIndex,
       kodebarang: item.kodebarang,
       nama_barang: item.nama_barang,
       jumlah_barang: 1,

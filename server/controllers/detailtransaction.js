@@ -26,34 +26,50 @@ const getDetailTransaction = async (req, res) => {
 };
 
 const createDetailTransaction = async (req, res) => {
-  data = req.body;
+  datas = req.body;
   let errorInput = [];
 
-  if (data.id === undefined || data.id == null) {
-    errorInput.push("Field id must not be null");
-  }
-  if (data.kode_barang === undefined || data.kode_barang == null) {
-    errorInput.push("Field product code must not be null");
-  }
-  if (data.jumlah_barang === undefined || data.jumlah_barang == null) {
-    errorInput.push("Field product count must not be null");
-  }
-  if (data.subtotal === undefined || data.subtotal == null) {
-    errorInput.push("Field subtotal must not be null");
+  for (let i = 0; i < datas.product.length; i++) {
+    data = datas.product[i];
+    if (data.id === undefined || data.id == null) {
+      errorInput.push("Field id must not be null");
+    }
+    if (data.kode_barang === undefined || data.kode_barang == null) {
+      errorInput.push("Field product code must not be null");
+    }
+    if (data.jumlah_barang === undefined || data.jumlah_barang == null) {
+      errorInput.push("Field product count must not be null");
+    }
+    if (data.subtotal === undefined || data.subtotal == null) {
+      errorInput.push("Field subtotal must not be null");
+    }
   }
 
-  if (errorInput.length() > 0) {
+  if (errorInput.length > 0) {
     return res.status(HTTPSTATUS.BadRequest).json({
       error: errorInput,
     });
   }
+  let result = [];
 
-  try {
-    const result = detailTransaction.createDtlTransaction(data);
-    res.status(HTTPSTATUS.Created).json(result);
-  } catch (error) {
-    res.status(HTTPSTATUS.InternalServerError).json(error);
+  for (let i = 0; i < datas.product.length; i++) {
+    data = datas.product[i];
+    console.log(data.jumlah_barang);
+
+    try {
+      result.push(await detailTransaction.createDtlTransaction(data.id, data.kode_barang, data.jumlah_barang, data.subtotal));
+      // res.status(HTTPSTATUS.Created).json(result);
+    } catch (error) {
+      for (let idx = 0; idx < result.length; idx++) {
+        detailTransaction.deleteDtlTransaction(result[idx]);
+      }
+      return res.status(HTTPSTATUS.InternalServerError).json(error);
+    }
   }
+  console.log(result);
+  res.status(HTTPSTATUS.Created).json({
+    success: true,
+  });
 };
 
 module.exports = {

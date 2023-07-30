@@ -47,6 +47,10 @@ const Kasir = () => {
     }
   };
 
+  const handleSave = async () => {
+    console.log(items);
+  };
+
   useEffect(() => {
     getProductFromLocalstorage();
   }, []);
@@ -69,6 +73,9 @@ const Kasir = () => {
       <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto p-3 text-decoration-none">
         <TableKasir items={items} />
       </div>
+      <Button variant="primary" onClick={handleSave}>
+        Simpan
+      </Button>
       <ModalKasir show={show} setShow={modalClose} products={products} />
     </div>
   );
