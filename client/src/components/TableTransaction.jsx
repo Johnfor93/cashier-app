@@ -14,9 +14,9 @@ const TableTransaction = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.transaction.map((item) => {
+        {props.transaction.map((item, index) => {
           return (
-            <tr key={item.id}>
+            <tr key={index}>
               <td scope="row">{item.nama_barang}</td>
               <td>{item.jumlah_barang}</td>
               <td>{item.harga}</td>

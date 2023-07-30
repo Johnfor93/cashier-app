@@ -17,7 +17,8 @@ const getTransaction = async (req, res) => {
 const createTransaction = async (req, res) => {
   data = req.body;
   try {
-    const result = await transaction.createTransaction(data);
+    const result = await transaction.createTransaction(data.tanggal, data.total);
+    console.log(result);
     res.status(HTTPSTATUS.Created).json(result);
   } catch (error) {
     res.status(HTTPSTATUS.InternalServerError).json(error);

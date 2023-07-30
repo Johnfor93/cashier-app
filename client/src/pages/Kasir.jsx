@@ -8,6 +8,7 @@ const Kasir = () => {
   const [show, setShow] = useState(false);
   const [products, setProducts] = useState([]);
   const [items, setItems] = useState([]);
+  const [totalBayar, setTotalBayar] = useState(0);
   const [searchProduct, setSearchProduct] = useState("");
 
   const modalClose = (close) => {
@@ -17,7 +18,6 @@ const Kasir = () => {
 
   const handlerClick = () => {
     getProduct(searchProduct);
-    console.log(products);
   };
 
   const searchItems = (event) => {
@@ -40,15 +40,78 @@ const Kasir = () => {
     await setShow(true);
   };
 
-  const getProductFromLocalstorage = () => {
-    const items = JSON.parse(localStorage.getItem("items"));
+  const getProductFromLocalstorage = async () => {
+    const items = await JSON.parse(localStorage.getItem("items"));
     if (items) {
       setItems(items);
     }
+
+    let total = 0;
+    for (let idx in items) {
+      total += parseInt(items[idx].subtotal);
+    }
+    setTotalBayar(total);
   };
 
   const handleSave = async () => {
-    console.log(items);
+    if (items.length === 0) return;
+    // dapetin tanggal lalu create transaksi dulu returnnya id
+    const date = new Date();
+    const getMonth = date.toLocaleString("default", { month: "2-digit" });
+    const getDay = date.toLocaleString("default", { day: "2-digit" });
+    const getYear = date.toLocaleString("default", { year: "numeric" });
+
+    const dateFormat = `${getYear}-${getMonth}-${getDay}`;
+    const dataTransaksi = {
+      tanggal: dateFormat,
+      total: totalBayar,
+    };
+    console.log(dataTransaksi);
+
+    const result = await fetch("http://localhost:3000/api/addTransaction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataTransaksi),
+    });
+    const data = await result.json();
+    if (data.name) {
+      return;
+    }
+
+    // dengan id yang sama, create detail transaksinya
+    let itemsDetail = [];
+    for (let idx in items) {
+      itemsDetail.push({
+        kode_barang: items[idx].kodebarang,
+        jumlah_barang: items[idx].jumlah_barang,
+        subtotal: items[idx].subtotal,
+      });
+    }
+
+    const dataDetail = {
+      id: data.id_transaksi,
+      product: itemsDetail,
+    };
+    console.log(dataDetail);
+
+    const responseDetail = await fetch("http://localhost:3000/api/addDetailTransaction", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataDetail),
+    });
+
+    const responseDetailJson = await responseDetail.json();
+    console.log(responseDetailJson);
+
+    if (responseDetailJson.success) {
+      setItems([]);
+      setTotalBayar(0);
+      localStorage.removeItem("items");
+    }
   };
 
   useEffect(() => {

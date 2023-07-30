@@ -29,11 +29,12 @@ const createDetailTransaction = async (req, res) => {
   datas = req.body;
   let errorInput = [];
 
+  if (datas.id === undefined || datas.id == null) {
+    errorInput.push("Field id must not be null");
+  }
+
   for (let i = 0; i < datas.product.length; i++) {
     data = datas.product[i];
-    if (data.id === undefined || data.id == null) {
-      errorInput.push("Field id must not be null");
-    }
     if (data.kode_barang === undefined || data.kode_barang == null) {
       errorInput.push("Field product code must not be null");
     }
@@ -57,7 +58,7 @@ const createDetailTransaction = async (req, res) => {
     console.log(data.jumlah_barang);
 
     try {
-      result.push(await detailTransaction.createDtlTransaction(data.id, data.kode_barang, data.jumlah_barang, data.subtotal));
+      result.push(await detailTransaction.createDtlTransaction(datas.id, data.kode_barang, data.jumlah_barang, data.subtotal));
       // res.status(HTTPSTATUS.Created).json(result);
     } catch (error) {
       for (let idx = 0; idx < result.length; idx++) {
@@ -69,6 +70,7 @@ const createDetailTransaction = async (req, res) => {
   console.log(result);
   res.status(HTTPSTATUS.Created).json({
     success: true,
+    countRow: result.length,
   });
 };
 
