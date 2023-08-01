@@ -27,7 +27,7 @@ const Kasir = () => {
   const getProduct = async (searchName = "") => {
     let url = "http://localhost:3000/api/getItem";
     if (searchName !== "") {
-      url += `byName/${searchName}`;
+      url += `byName/${searchName.toUpperCase()}`;
     }
     const response = await fetch(url);
     const data = await response.json();

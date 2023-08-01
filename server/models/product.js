@@ -28,9 +28,11 @@ const getProductByName = async (name) => {
 
 const createProduct = async (data) => {
   try {
-    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6)", [data.id, data.nama, data.brand, data.model, data.jumlah, data.harga]);
+    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6) RETURNING *", [data.id, data.nama, data.brand, data.model, data.jumlah, data.harga]);
     if (result.rowCount == 0) {
-      throw new Error("Data tidak dapat dimasukkan");
+      return {
+        error: "Data tidak dapat dimasukkan",
+      };
     }
     return data;
   } catch (error) {

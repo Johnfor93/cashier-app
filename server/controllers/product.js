@@ -51,7 +51,9 @@ const createProduct = async (req, res) => {
     errorInput.push("Field price value must not be 0");
   }
 
-  data.id = data.nama + data.brand + data.model;
+  const dateFormat = Math.floor(Date.now() / 1000);
+
+  data.id = `${data.brand.slice(0, 3)}${data.model}${dateFormat}`;
 
   if (errorInput.length > 0) {
     return res.status(HTTPSTATUS.BadRequest).json({
@@ -100,8 +102,6 @@ const updateProduct = async (req, res) => {
   if (data.harga === 0) {
     errorInput.push("Field price value must not be 0");
   }
-
-  data.id = data.nama + data.brand + data.model;
 
   if (errorInput.length > 0) {
     return res.status(HTTPSTATUS.BadRequest).json({
