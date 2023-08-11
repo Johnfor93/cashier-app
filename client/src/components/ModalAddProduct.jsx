@@ -49,14 +49,6 @@ const ModalAddProduct = ({ show, handleClose }) => {
               <Form.Label>Kategori Barang</Form.Label>
               <Form.Control type="text" placeholder="Jam Tangan, Baterai Jam, Jam Dinding" onChange={(event) => setKategoriBarang(event.target.value)} />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="jumlah">
-              <Form.Label>Jumlah Barang</Form.Label>
-              <Form.Control type="number" onChange={(event) => setJumlah_barang(parseInt(event.target.value))} />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="hargaSatuan">
-              <Form.Label>Harga Satuan</Form.Label>
-              <Form.Control type="number" onChange={(event) => setHargaSatuan(parseInt(event.target.value))} />
-            </Form.Group>
             <Form.Group className="mb-3" controlId="merek">
               <Form.Label>Merek</Form.Label>
               <Form.Control type="text" onChange={(event) => setMerekBarang(event.target.value)} />
@@ -64,6 +56,14 @@ const ModalAddProduct = ({ show, handleClose }) => {
             <Form.Group className="mb-3" controlId="type">
               <Form.Label>Tipe</Form.Label>
               <Form.Control type="text" onChange={(event) => setTipeBarang(event.target.value)} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="jumlah">
+              <Form.Label>Jumlah Barang</Form.Label>
+              <Form.Control type="number" onChange={(event) => setJumlah_barang(parseInt(event.target.value))} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="hargaSatuan">
+              <Form.Label>Harga Satuan</Form.Label>
+              <Form.Control type="number" onChange={(event) => setHargaSatuan(parseInt(event.target.value))} />
             </Form.Group>
           </Form>
         </Modal.Body>
