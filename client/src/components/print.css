@@ -1,0 +1,30 @@
+@media print {
+  @page {
+    size: landscape;
+    break-inside: avoid !important;
+  }
+  body {
+    display: block !important;
+  }
+
+  div {
+    break-inside: avoid;
+  }
+
+  .react-grid-item {
+    position: unset !important;
+    transform: unset !important;
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .react-grid-item div {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .react-grid-layout {
+    height: unset !important;
+    display: table;
+  }
+}

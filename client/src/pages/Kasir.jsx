@@ -3,13 +3,19 @@ import TableKasir from "./../components/TableKasir.jsx";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import ModalKasir from "../components/ModalKasir.jsx";
+import ModalPrint from "../components/ModalPrint.jsx";
 
 const Kasir = () => {
   const [show, setShow] = useState(false);
+  const [showPrint, setShowPrint] = useState(false);
   const [products, setProducts] = useState([]);
   const [items, setItems] = useState([]);
   const [totalBayar, setTotalBayar] = useState(0);
   const [searchProduct, setSearchProduct] = useState("");
+
+  const handlePrintClose = () => {
+    setShowPrint(false);
+  };
 
   const modalClose = (close) => {
     setShow(close);
@@ -54,6 +60,7 @@ const Kasir = () => {
   };
 
   const handleSave = async () => {
+    setShowPrint(false);
     if (items.length === 0) return;
     // dapetin tanggal lalu create transaksi dulu returnnya id
     const date = new Date();
@@ -136,10 +143,11 @@ const Kasir = () => {
       <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto p-3 text-decoration-none">
         <TableKasir items={items} />
       </div>
-      <Button variant="primary" onClick={handleSave}>
+      <Button variant="primary" onClick={() => setShowPrint(true)}>
         Simpan
       </Button>
       <ModalKasir show={show} setShow={modalClose} products={products} />
+      <ModalPrint show={showPrint} handleClose={handlePrintClose} handleSave={handleSave} products={items}></ModalPrint>
     </div>
   );
 };

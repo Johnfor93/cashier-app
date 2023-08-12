@@ -49,7 +49,7 @@ const updateProduct = async (data, kodebarang) => {
       data.brand,
       data.model,
       data.jumlah,
-      data.jumlah,
+      data.harga,
       data.kategoriBarang,
     ]);
     if (result.rowCount == 0) {
