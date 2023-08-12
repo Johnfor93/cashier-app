@@ -6,8 +6,10 @@ const dtlTransaction = require("./../controllers/detailtransaction");
 apiRoute.get("/", (req, res) => res.json("Hello"));
 
 // Product api
-apiRoute.get("/getItem/", (req, res) => product.getItem(req, res));
+apiRoute.get("/getItem/:page", (req, res) => product.getItem(req, res));
+apiRoute.get("/getItemByName/:name/:page", (req, res) => product.getItemByName(req, res));
 apiRoute.get("/getItemByName/:name", (req, res) => product.getItemByName(req, res));
+apiRoute.put("/updateItem/:kodebarang", (req, res) => product.updateProduct(req, res));
 apiRoute.post("/addItem", (req, res) => product.createProduct(req, res));
 
 apiRoute.get("/getItembyId/:id", (req, res) => {

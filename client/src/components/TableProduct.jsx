@@ -2,6 +2,9 @@ import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
 
 const TableProduct = (props) => {
+  const editProduct = (item) => {
+    props.showEditModal(item);
+  };
   return (
     <Table striped bordered={false} hover>
       <thead>
@@ -11,6 +14,7 @@ const TableProduct = (props) => {
           <th scope="col">Type</th>
           <th scope="col">Stock</th>
           <th scope="col">Harga</th>
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
       <tbody>
@@ -22,6 +26,11 @@ const TableProduct = (props) => {
               <td>{item.model}</td>
               <td>{item.jumlah}</td>
               <td>{item.harga}</td>
+              <td>
+                <div className="btn btn-primary" onClick={() => editProduct(item)}>
+                  Edit
+                </div>
+              </td>
             </tr>
           );
         })}
@@ -32,6 +41,7 @@ const TableProduct = (props) => {
 
 TableProduct.propTypes = {
   products: PropTypes.array,
+  showEditModal: PropTypes.func,
 };
 
 export default TableProduct;

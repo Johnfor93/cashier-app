@@ -2,8 +2,10 @@ const product = require("./../models/product");
 const HTTPSTATUS = require("./../config/httpstatus");
 
 const getItem = async (req, res) => {
+  const limit = 10;
+  const offset = limit * parseInt(req.params.page);
   try {
-    const result = await product.getProduct();
+    const result = await product.getProduct(limit, offset);
     res.status(HTTPSTATUS.OK).json({ result });
   } catch (error) {
     res.status(HTTPSTATUS.InternalServerError).json({ error });
@@ -12,8 +14,11 @@ const getItem = async (req, res) => {
 
 const getItemByName = async (req, res) => {
   const nameToFind = req.params.name;
+  const limit = 10;
+  let offset = 0;
+  if (req.params.page) offset = limit * parseInt(req.params.page);
   try {
-    const result = await product.getProductByName(nameToFind);
+    const result = await product.getProductByName(nameToFind, limit, offset);
     res.status(HTTPSTATUS.OK).json(result);
   } catch (error) {
     res.status(HTTPSTATUS.InternalServerError).json({ error });
@@ -74,6 +79,8 @@ const createProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   data = req.body;
+  kodebarang = req.params.kodebarang;
+  console.log(data);
   let errorInput = [];
 
   if (data.nama === undefined || data.nama == null) {
@@ -110,7 +117,7 @@ const updateProduct = async (req, res) => {
   }
 
   try {
-    const result = await product.createProduct(data);
+    const result = await product.updateProduct(data, kodebarang);
     res.status(HTTPSTATUS.OK).json({
       message: "Data telah dimasukkan",
       result,

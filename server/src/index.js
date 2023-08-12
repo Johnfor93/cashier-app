@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.sendFile("../dist/index.html");
+  res.sendFile("index.html");
 });
 
 app.use("/api", apiRoute);
