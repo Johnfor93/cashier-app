@@ -27,11 +27,6 @@ const TableProduct = (props) => {
                 <div className="barcode-box">
                   <Barcode value={item.kodebarang} width={1} height={40} />
                 </div>
-                <div className="barcode-download">
-                  <a target="blank" download>
-                    Download
-                  </a>
-                </div>
               </td>
               <td>{item.nama_barang}</td>
               <td>{item.brand}</td>
