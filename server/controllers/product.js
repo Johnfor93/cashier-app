@@ -27,6 +27,7 @@ const getItemByName = async (req, res) => {
 
 const createProduct = async (req, res) => {
   data = req.body;
+  console.log(data);
   let errorInput = [];
 
   if (data.nama === undefined || data.nama == null) {
@@ -58,7 +59,7 @@ const createProduct = async (req, res) => {
 
   const dateFormat = Math.floor(Date.now() / 1000);
 
-  data.id = `${data.brand.slice(0, 3)}${data.model}${dateFormat}`;
+  // data.id = `${data.brand.slice(0, 3)}${data.model}${dateFormat}`;
 
   if (errorInput.length > 0) {
     return res.status(HTTPSTATUS.BadRequest).json({

@@ -28,7 +28,7 @@ const getProductByName = async (name, limit, offset) => {
 
 const createProduct = async (data) => {
   try {
-    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [data.id, data.nama, data.brand, data.model, data.jumlah, data.harga, data.kategoriBarang]);
+    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [data.kodeBarang, data.nama, data.brand, data.model, data.jumlah, data.harga, data.kategoriBarang]);
     if (result.rowCount == 0) {
       return {
         error: "Data tidak dapat dimasukkan",
@@ -36,6 +36,7 @@ const createProduct = async (data) => {
     }
     return data;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
