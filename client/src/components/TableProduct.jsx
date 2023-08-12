@@ -1,5 +1,6 @@
 import Table from "react-bootstrap/Table";
 import PropTypes from "prop-types";
+import Barcode from "react-barcode";
 
 const TableProduct = (props) => {
   const editProduct = (item) => {
@@ -9,6 +10,7 @@ const TableProduct = (props) => {
     <Table striped bordered={false} hover>
       <thead>
         <tr>
+          <th scope="col">Barcode</th>
           <th scope="col">Nama Product</th>
           <th scope="col">Merek</th>
           <th scope="col">Type</th>
@@ -21,7 +23,17 @@ const TableProduct = (props) => {
         {props.products.map((item) => {
           return (
             <tr key={item.kodebarang}>
-              <td scope="row">{item.nama_barang}</td>
+              <td scope="row">
+                <div className="barcode-box">
+                  <Barcode value={item.kodebarang} width={1} height={40} />
+                </div>
+                <div className="barcode-download">
+                  <a target="blank" download>
+                    Download
+                  </a>
+                </div>
+              </td>
+              <td>{item.nama_barang}</td>
               <td>{item.brand}</td>
               <td>{item.model}</td>
               <td>{item.jumlah}</td>
