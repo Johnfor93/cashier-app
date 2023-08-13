@@ -37,7 +37,7 @@ const ModalPrint = ({ show, handleClose, handleSave, products }) => {
             <h5 className="mb-2 text-center">Toko Tunas Jaya</h5>
             <small className="text-center">Jl. Panglima Sudirman No.260, Pangongangan, Kec. Manguharjo, Kota Madiun</small>
             <br />
-            <small className="text-center">No. Telepon: </small>
+            <small className="text-center">No. Telepon: 082140436668</small>
           </div>
           <hr />
           <div className="text-end mb-4">
