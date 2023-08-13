@@ -59,7 +59,7 @@ const Product = () => {
   const getProduct = async (searchName = "") => {
     let url = "http://localhost:3000/api/getItem";
     if (searchName !== "") {
-      url += `byName/${searchName.toUpperCase()}`;
+      url += `byName/${searchName}`;
     }
     url += `/${pages}`;
     console.log(url);
