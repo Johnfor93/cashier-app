@@ -15,6 +15,7 @@ const getProduct = async (limit, offset) => {
 const getProductByName = async (name, limit, offset) => {
   name = name.replace(/\s/g, "%");
   name = "%" + name + "%";
+  console.log(name);
   try {
     const result = await database.query("SELECT * FROM Product WHERE nama_barang LIKE $1 OR kodebarang LIKE $1 LIMIT $2 OFFSET $3", [name, limit, offset]);
     return {
