@@ -56,10 +56,10 @@ const Product = () => {
     setSearchProduct(event.target.value);
   };
 
-  const getProduct = async (searchName = "") => {
+  const getProduct = async () => {
     let url = "http://localhost:3000/api/getItem";
-    if (searchName !== "") {
-      url += `byName/${searchName}`;
+    if (searchProduct !== "") {
+      url += `byName/${searchProduct}`;
     }
     url += `/${pages}`;
     console.log(url);

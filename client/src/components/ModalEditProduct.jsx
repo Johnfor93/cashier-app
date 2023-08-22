@@ -5,8 +5,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const ModalEditProduct = ({ show, handleClose, product }) => {
+  console.log(product);
   const [kodeBarang, setKodeBarang] = useState(product.kodebarang);
-  const [kategoriBarang, setKategoriBarang] = useState(product.kategori_barang);
+  const [kategoriBarang, setKategoriBarang] = useState(product.kategory_barang);
   const [tipeBarang, setTipeBarang] = useState(product.model);
   const [jumlah_barang, setJumlah_barang] = useState(product.jumlah);
   const [hargaSatuan, setHargaSatuan] = useState(product.harga);
@@ -15,10 +16,10 @@ const ModalEditProduct = ({ show, handleClose, product }) => {
   const handleSave = async () => {
     const product = {
       kodeBarang: kodeBarang,
-      nama: `${kategoriBarang.toUpperCase()} ${MerekBarang.toUpperCase()} ${tipeBarang.toUpperCase()}`,
-      kategoriBarang: kategoriBarang.toUpperCase(),
-      brand: MerekBarang.toUpperCase(),
-      model: tipeBarang.toUpperCase(),
+      nama: `${kategoriBarang} ${MerekBarang} ${tipeBarang}`,
+      kategoriBarang: kategoriBarang,
+      brand: MerekBarang,
+      model: tipeBarang,
       jumlah: jumlah_barang,
       harga: hargaSatuan,
     };
@@ -49,7 +50,7 @@ const ModalEditProduct = ({ show, handleClose, product }) => {
           <Form>
             <Form.Group className="mb-3" controlId="nama_barang">
               <Form.Label>Kode Barang</Form.Label>
-              <Form.Control type="text" placeholder="Jam Tangan, Baterai Jam, Jam Dinding" onChange={(event) => setKodeBarang(event.target.value)} value={kodeBarang} disabled />
+              <Form.Control type="text" placeholder="Barcode atau Tipe Barang" onChange={(event) => setKodeBarang(event.target.value)} value={kodeBarang} disabled />
             </Form.Group>
             <Form.Group className="mb-3" controlId="nama_barang">
               <Form.Label>Nama Barang</Form.Label>
