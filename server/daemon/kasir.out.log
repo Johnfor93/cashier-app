@@ -242,3 +242,46 @@ Example app listening on port 3000
 ::1 - - [22/Aug/2023:10:24:32 +0000] "GET /api/getItem/0 HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
 ::1 - - [22/Aug/2023:10:24:32 +0000] "GET /api/getItem/0 HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
 ::1 - - [22/Aug/2023:10:24:38 +0000] "GET /assets/index-453e26c0.css HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+Example app listening on port 3000
+::1 - - [22/Aug/2023:10:26:04 +0000] "GET / HTTP/1.1" 200 452 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:04 +0000] "GET /assets/index-453e26c0.css HTTP/1.1" 200 255399 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:04 +0000] "GET /assets/index-4b2ccdf6.js HTTP/1.1" 200 488176 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:05 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:05 +0000] "GET /assets/index-4b2ccdf6.js HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:05 +0000] "GET /assets/index-453e26c0.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:05 +0000] "GET /vite.svg HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:06 +0000] "GET /api/getItem/0 HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:09 +0000] "GET /api/getItem/0 HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:09 +0000] "GET /api/getItem/0 HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+{
+  kodeBarang: '7630043961742',
+  nama: 'Jam Tangan Cerruti 7630043961742',
+  kategoriBarang: 'Jam Tangan',
+  brand: 'Cerruti',
+  model: '7630043961742',
+  jumlah: 5,
+  harga: 5000000
+}
+::1 - - [22/Aug/2023:10:26:13 +0000] "PUT /api/updateItem/7630043961742 HTTP/1.1" 200 35 "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:13 +0000] "GET /api/getItem/0 HTTP/1.1" 200 1827 "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:10:26:16 +0000] "GET /assets/index-453e26c0.css HTTP/1.1" 304 - "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+%7630043961742%
+::1 - - [22/Aug/2023:10:26:21 +0000] "GET /api/getItembyName/7630043961742/0 HTTP/1.1" 200 202 "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+%Cerruti%
+::1 - - [22/Aug/2023:10:26:27 +0000] "GET /api/getItembyName/Cerruti/0 HTTP/1.1" 200 1102 "http://localhost:3000/product" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+2023-08-22
+::1 - - [22/Aug/2023:10:26:48 +0000] "GET /api/getTransaction/2023-08-22/2023-08-22 HTTP/1.1" 304 - "http://localhost:3000/transaksi" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+2023-08-22
+::1 - - [22/Aug/2023:10:26:50 +0000] "GET /api/getTransaction/2023-08-22/2023-08-22 HTTP/1.1" 304 - "http://localhost:3000/transaksi" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+2023-07-01
+::1 - - [22/Aug/2023:10:26:54 +0000] "GET /api/getTransaction/2023-07-01/2023-08-22 HTTP/1.1" 200 23 "http://localhost:3000/transaksi" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+%Cerruti%
+::1 - - [22/Aug/2023:11:27:35 +0000] "GET /api/getItembyName/Cerruti HTTP/1.1" 200 1102 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+::1 - - [22/Aug/2023:11:27:43 +0000] "GET /assets/index-453e26c0.css HTTP/1.1" 304 - "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+{ id_transaksi: '33' }
+::1 - - [22/Aug/2023:11:27:46 +0000] "POST /api/addTransaction HTTP/1.1" 201 21 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+1
+[ '37' ]
+::1 - - [22/Aug/2023:11:27:46 +0000] "POST /api/addDetailTransaction HTTP/1.1" 201 29 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+2023-08-22
+::1 - - [22/Aug/2023:11:27:48 +0000] "GET /api/getTransaction/2023-08-22/2023-08-22 HTTP/1.1" 200 173 "http://localhost:3000/transaksi" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
