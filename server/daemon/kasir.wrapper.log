@@ -1,2 +1,98 @@
 2023-08-13 10:31:11 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
 2023-08-13 10:31:11 - Started 6580
+2023-08-17 22:19:09 - Stopping kasir.exe
+2023-08-17 22:19:09 - ProcessKill 6580
+2023-08-17 22:19:09 - Shutdown exception
+Message:Class not registered
+
+Stacktrace:   at System.Runtime.InteropServices.Marshal.ThrowExceptionForHRInternal(Int32 errorCode, IntPtr errorInfo)
+   at System.Management.ManagementScope.InitializeGuts(Object o)
+   at System.Management.ManagementScope.Initialize()
+   at System.Management.ManagementObjectSearcher.Initialize()
+   at System.Management.ManagementObjectSearcher.Get()
+   at winsw.WrapperService.GetChildPids(Int32 pid)
+   at winsw.WrapperService.StopProcessAndChildren(Int32 pid)
+   at winsw.WrapperService.StopIt()
+   at winsw.WrapperService.OnShutdown()
+2023-08-18 07:37:28 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-18 07:37:28 - Started 6712
+2023-08-20 21:04:55 - Stopping kasir.exe
+2023-08-20 21:04:55 - ProcessKill 6712
+2023-08-20 21:04:55 - Found child process: 6736 Name: conhost.exe
+2023-08-20 21:04:55 - Found child process: 7596 Name: node.exe
+2023-08-20 21:04:55 - Stopping process 6736
+2023-08-20 21:04:55 - Send SIGINT 6736
+2023-08-20 21:04:55 - SIGINT to 6736 failed - Killing as fallback
+2023-08-20 21:04:55 - Stopping process 7596
+2023-08-20 21:04:56 - Send SIGINT 7596
+2023-08-20 21:04:56 - SIGINT to 7596 failed - Killing as fallback
+2023-08-20 21:04:56 - Stopping process 6712
+2023-08-20 21:04:56 - Send SIGINT 6712
+2023-08-20 21:04:56 - SIGINT to 6712 failed - Killing as fallback
+2023-08-20 21:04:56 - Finished kasir.exe
+2023-08-20 21:05:00 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-20 21:05:00 - Started 16828
+2023-08-20 21:09:44 - Stopping kasir.exe
+2023-08-20 21:09:44 - ProcessKill 16828
+2023-08-20 21:09:44 - Found child process: 17600 Name: conhost.exe
+2023-08-20 21:09:44 - Found child process: 6244 Name: node.exe
+2023-08-20 21:09:44 - Stopping process 17600
+2023-08-20 21:09:44 - Send SIGINT 17600
+2023-08-20 21:09:44 - SIGINT to 17600 failed - Killing as fallback
+2023-08-20 21:09:44 - Stopping process 6244
+2023-08-20 21:09:44 - Send SIGINT 6244
+2023-08-20 21:09:44 - SIGINT to 6244 failed - Killing as fallback
+2023-08-20 21:09:44 - Stopping process 16828
+2023-08-20 21:09:44 - Send SIGINT 16828
+2023-08-20 21:09:44 - SIGINT to 16828 failed - Killing as fallback
+2023-08-20 21:09:44 - Finished kasir.exe
+2023-08-22 14:54:07 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-22 14:54:07 - Started 6492
+2023-08-22 17:19:32 - Stopping kasir.exe
+2023-08-22 17:19:32 - ProcessKill 6492
+2023-08-22 17:19:33 - Found child process: 6512 Name: conhost.exe
+2023-08-22 17:19:33 - Found child process: 7108 Name: node.exe
+2023-08-22 17:19:33 - Stopping process 6512
+2023-08-22 17:19:33 - Send SIGINT 6512
+2023-08-22 17:19:33 - SIGINT to 6512 failed - Killing as fallback
+2023-08-22 17:19:33 - Stopping process 7108
+2023-08-22 17:19:33 - Send SIGINT 7108
+2023-08-22 17:19:33 - SIGINT to 7108 failed - Killing as fallback
+2023-08-22 17:19:33 - Stopping process 6492
+2023-08-22 17:19:33 - Send SIGINT 6492
+2023-08-22 17:19:33 - SIGINT to 6492 failed - Killing as fallback
+2023-08-22 17:19:33 - Finished kasir.exe
+2023-08-22 17:20:14 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-22 17:20:14 - Started 14300
+2023-08-22 17:23:15 - Stopping kasir.exe
+2023-08-22 17:23:15 - ProcessKill 14300
+2023-08-22 17:23:16 - Found child process: 13348 Name: conhost.exe
+2023-08-22 17:23:16 - Found child process: 11592 Name: node.exe
+2023-08-22 17:23:16 - Stopping process 13348
+2023-08-22 17:23:16 - Send SIGINT 13348
+2023-08-22 17:23:16 - SIGINT to 13348 failed - Killing as fallback
+2023-08-22 17:23:16 - Stopping process 11592
+2023-08-22 17:23:16 - Send SIGINT 11592
+2023-08-22 17:23:16 - SIGINT to 11592 failed - Killing as fallback
+2023-08-22 17:23:16 - Stopping process 14300
+2023-08-22 17:23:16 - Send SIGINT 14300
+2023-08-22 17:23:16 - SIGINT to 14300 failed - Killing as fallback
+2023-08-22 17:23:16 - Finished kasir.exe
+2023-08-22 17:23:40 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-22 17:23:40 - Started 14008
+2023-08-22 17:25:35 - Stopping kasir.exe
+2023-08-22 17:25:35 - ProcessKill 14008
+2023-08-22 17:25:35 - Found child process: 7272 Name: conhost.exe
+2023-08-22 17:25:35 - Found child process: 14160 Name: node.exe
+2023-08-22 17:25:35 - Stopping process 7272
+2023-08-22 17:25:35 - Send SIGINT 7272
+2023-08-22 17:25:35 - SIGINT to 7272 failed - Killing as fallback
+2023-08-22 17:25:35 - Stopping process 14160
+2023-08-22 17:25:35 - Send SIGINT 14160
+2023-08-22 17:25:35 - SIGINT to 14160 failed - Killing as fallback
+2023-08-22 17:25:35 - Stopping process 14008
+2023-08-22 17:25:35 - Send SIGINT 14008
+2023-08-22 17:25:35 - SIGINT to 14008 failed - Killing as fallback
+2023-08-22 17:25:35 - Finished kasir.exe
+2023-08-22 17:26:00 - Starting C:\Program Files\nodejs\node.exe  --harmony C:\Users\user\AppData\Roaming\npm\node_modules\qckwinsvc\node_modules\node-windows\lib\wrapper.js --file "D:\Work Project\cashier-app\server\index.js" --log "kasir wrapper" --grow 0.25 --wait 1 --maxrestarts 3 --abortonerror n --stopparentfirst undefined
+2023-08-22 17:26:00 - Started 14248

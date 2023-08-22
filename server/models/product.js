@@ -44,7 +44,7 @@ const createProduct = async (data) => {
 
 const updateProduct = async (data, kodebarang) => {
   try {
-    const result = await database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6, kategori_barang=$7 WHERE kodebarang = $1", [
+    const result = await database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6, kategory_barang=$7 WHERE kodebarang = $1", [
       kodebarang,
       data.nama,
       data.brand,
