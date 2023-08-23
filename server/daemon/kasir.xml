@@ -1,7 +1,7 @@
 <service>
 	<id>kasir.exe</id>
 	<name>kasir</name>
-	<description>kasir</description>
+	<description>aplikasi kasir</description>
 	<executable>C:\Program Files\nodejs\node.exe</executable>
 	<logmode>rotate</logmode>
 	<argument>--harmony</argument>

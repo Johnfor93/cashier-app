@@ -29,7 +29,7 @@ const getProductByName = async (name, limit, offset) => {
 
 const createProduct = async (data) => {
   try {
-    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *", [data.kodeBarang, data.nama, data.brand, data.model, data.jumlah, data.harga, data.kategoriBarang]);
+    const result = await database.query("INSERT INTO Product VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *", [data.kodeBarang, data.nama, data.brand, data.model, data.jumlah, data.harga, data.kategoriBarang, data.kodeharga]);
     if (result.rowCount == 0) {
       return {
         error: "Data tidak dapat dimasukkan",
@@ -44,7 +44,7 @@ const createProduct = async (data) => {
 
 const updateProduct = async (data, kodebarang) => {
   try {
-    const result = await database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6, kategory_barang=$7 WHERE kodebarang = $1", [
+    const result = await database.query("UPDATE Product SET nama_barang = $2, brand=$3, model=$4, jumlah=$5, harga=$6, kategory_barang=$7, kodeharga=$8 WHERE kodebarang = $1", [
       kodebarang,
       data.nama,
       data.brand,
@@ -52,6 +52,7 @@ const updateProduct = async (data, kodebarang) => {
       data.jumlah,
       data.harga,
       data.kategoriBarang,
+      data.kodeharga,
     ]);
     if (result.rowCount == 0) {
       console.log("data tidak ditemukan");

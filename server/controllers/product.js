@@ -53,10 +53,6 @@ const createProduct = async (req, res) => {
     data.harga = parseInt(data.harga);
   }
 
-  if (data.harga === 0) {
-    errorInput.push("Field price value must not be 0");
-  }
-
   const dateFormat = Math.floor(Date.now() / 1000);
 
   // data.id = `${data.brand.slice(0, 3)}${data.model}${dateFormat}`;

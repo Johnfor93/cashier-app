@@ -10,10 +10,12 @@ const ModalKasir = ({ show, setShow, products }) => {
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Cari Barang</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <TableKasirProduct products={products} setShow={setShow} />
+          <div className="w-100">
+            <TableKasirProduct products={products} setShow={setShow} />
+          </div>
         </Modal.Body>
       </Modal>
     </>

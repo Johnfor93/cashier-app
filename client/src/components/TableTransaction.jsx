@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const TableTransaction = (props) => {
   return (
-    <Table striped bordered={false} hover>
+    <Table striped bordered={false} hover className="table">
       <thead>
         <tr>
           <th scope="col">Nama Product</th>

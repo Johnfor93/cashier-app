@@ -52,7 +52,7 @@ const Transaksi = () => {
   }, []);
 
   return (
-    <div className="px-4">
+    <div className="px-4 w-100">
       <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto p-3 text-decoration-none">
         <span className="fs-4">Transaksi</span>
       </div>
@@ -82,7 +82,7 @@ const Transaksi = () => {
           </Alert>
         </div>
       ) : (
-        <div className="d-flex align-items-center mb-3 p-3">
+        <div className="d-flex align-items-center mb-3 p-3 table-responsive">
           <TableTransaction transaction={transaction} />
         </div>
       )}

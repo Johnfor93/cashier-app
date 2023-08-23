@@ -11,6 +11,7 @@ const ModalAddProduct = ({ show, handleClose }) => {
   const [jumlah_barang, setJumlah_barang] = useState(0);
   const [hargaSatuan, setHargaSatuan] = useState(0);
   const [MerekBarang, setMerekBarang] = useState("");
+  const [kodeharga, setkodeharga] = useState("");
 
   const handleSave = async () => {
     const product = {
@@ -21,6 +22,7 @@ const ModalAddProduct = ({ show, handleClose }) => {
       model: tipeBarang.toUpperCase(),
       jumlah: jumlah_barang,
       harga: hargaSatuan,
+      kodeharga: kodeharga,
     };
 
     const response = await fetch("http://localhost:3000/api/addItem", {
@@ -71,6 +73,10 @@ const ModalAddProduct = ({ show, handleClose }) => {
             <Form.Group className="mb-3" controlId="hargaSatuan">
               <Form.Label>Harga Satuan</Form.Label>
               <Form.Control type="number" onChange={(event) => setHargaSatuan(parseInt(event.target.value))} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="hargaSatuan">
+              <Form.Label>Kode Harga</Form.Label>
+              <Form.Control type="text" onChange={(event) => setkodeharga(event.target.value)} />
             </Form.Group>
           </Form>
         </Modal.Body>

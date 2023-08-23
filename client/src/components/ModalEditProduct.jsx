@@ -12,6 +12,7 @@ const ModalEditProduct = ({ show, handleClose, product }) => {
   const [jumlah_barang, setJumlah_barang] = useState(product.jumlah);
   const [hargaSatuan, setHargaSatuan] = useState(product.harga);
   const [MerekBarang, setMerekBarang] = useState(product.brand);
+  const [kodeharga, setkodeharga] = useState(product.kodeharga);
 
   const handleSave = async () => {
     const product = {
@@ -22,6 +23,7 @@ const ModalEditProduct = ({ show, handleClose, product }) => {
       model: tipeBarang,
       jumlah: jumlah_barang,
       harga: hargaSatuan,
+      kodeharga: kodeharga,
     };
     const response = await fetch(`http://localhost:3000/api/updateItem/${kodeBarang}`, {
       method: "PUT",
@@ -71,6 +73,10 @@ const ModalEditProduct = ({ show, handleClose, product }) => {
             <Form.Group className="mb-3" controlId="hargaSatuan">
               <Form.Label>Harga Satuan</Form.Label>
               <Form.Control type="number" onChange={(event) => setHargaSatuan(parseInt(event.target.value))} value={hargaSatuan} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="hargaSatuan">
+              <Form.Label>Kode Harga</Form.Label>
+              <Form.Control type="text" onChange={(event) => setkodeharga(event.target.value)} value={kodeharga} />
             </Form.Group>
           </Form>
         </Modal.Body>

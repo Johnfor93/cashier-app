@@ -16,6 +16,7 @@ const TableProduct = (props) => {
           <th scope="col">Type</th>
           <th scope="col">Stock</th>
           <th scope="col">Harga</th>
+          <th scope="col">Kode Harga</th>
           <th scope="col">Aksi</th>
         </tr>
       </thead>
@@ -33,6 +34,7 @@ const TableProduct = (props) => {
               <td>{item.model}</td>
               <td>{item.jumlah}</td>
               <td>{item.harga}</td>
+              <td>{item.kodeharga}</td>
               <td>
                 <div className="btn btn-primary" onClick={() => editProduct(item)}>
                   Edit

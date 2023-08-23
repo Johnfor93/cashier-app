@@ -4,4 +4,4 @@
 */dist
 */build
 /node_modules
-*/daemon
+/server/daemon
