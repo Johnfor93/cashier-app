@@ -15,7 +15,20 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   console.log("Hello");
-  res.sendFile(__dirname + "index.html");
+  console.log(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/product", (req, res) => {
+  console.log("Hello");
+  console.log(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/transaksi", (req, res) => {
+  console.log("Hello");
+  console.log(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.use("/api", apiRoute);
